@@ -4,6 +4,7 @@ function divClicado() {
 // Asociar evento click a un elemento del DOM
 
 function ocultarDinoseto() {
+    console.log();
     let dinoseto = document.querySelector("#dinoseto img");
     document.querySelector("#dinoseto").style.display = "none";
 
@@ -52,9 +53,31 @@ ponerHuevo.addEventListener("click", function(){
     let imagen = document.createElement('img')
     imagen.src = "./img/dinohuevo.png"
     document.querySelector("#dinoseto").appendChild(imagen)
+    imagen.id = Math.random()
+
+    imagen.addEventListener("dblclick", function (event) {
+        imagen.src = "./img/eclosion.png"
+    })
 })
 
 // Ejercicio 3- MEGA BONUS (es necesario utilizar el objeto evento  que mañana): Al hacer doble click en el huevo, hacer eclosionar.
 // Asociar evento 'dblclick' cada vez que creais una 'img' del huevo
 // en la función del 'dblclick' cambiar el atributo .src por la nueva imagen
 
+
+
+// Mostrar por consola las teclas que el cliente presiona.
+
+document.body.addEventListener("keyup", function(event){
+    console.log("tecla pulsada!" + event.key);
+})
+
+// Recorrer todas las <p> y les voy añadir un evento click
+
+let allParagraphs = document.querySelectorAll("p");
+
+allParagraphs.forEach(nodo => {
+    nodo.addEventListener("click", function (event) {
+        console.log(event.target.textContent);
+    })
+});
